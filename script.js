@@ -13,11 +13,14 @@ function startButtonFunction() {
         document.querySelector(".quiz-questions").innerHTML = ""
         var timeElement = document.querySelector(".time");
         var secondsLeft = 60;
+        var pointsElement = document.querySelector(".points");
+        var currentPoints = 0;
 
         // Start Timer
         var timerInterval = setInterval(function(){
         secondsLeft--;
         timeElement.textContent = "Time Left: " + secondsLeft + " Seconds";
+        pointsElement.textContent = "Score: " + currentPoints;
 
         if(secondsLeft === 0) {
             clearInterval(timerInterval);
@@ -59,6 +62,7 @@ function startButtonFunction() {
 
         //Add 10 points to score and start question 2
         answerC.addEventListener("click", function(){
+        currentPoints = currentPoints + 10;
         secondQuestion()
         })
 
