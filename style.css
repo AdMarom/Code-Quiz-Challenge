@@ -1,0 +1,9 @@
+h1 {
+    display: grid;
+    place-items: center;
+}   
+
+div {
+    display: grid;
+    place-items: center;
+}
