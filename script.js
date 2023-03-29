@@ -17,7 +17,7 @@ function startButtonFunction() {
         document.querySelector(".quiz-questions").innerHTML = ""
         // Declare time and points element
         var timeElement = document.querySelector(".time");
-        var secondsLeft = 60;
+        var secondsLeft = 50;
         var pointsElement = document.querySelector(".points");
         var currentPoints = 0;
 
@@ -27,8 +27,11 @@ function startButtonFunction() {
         timeElement.textContent = "Time Left: " + secondsLeft + " Seconds";
         pointsElement.textContent = "Score: " + currentPoints;
 
-        if(secondsLeft === 0) {
+        //will finish quiz if time runs out
+        if(secondsLeft <= 0) {
             clearInterval(timerInterval);
+            quizFinished();
+
         }
 
         }, 1000);
@@ -279,6 +282,7 @@ function startButtonFunction() {
     function quizFinished() {
         document.querySelector(".quiz-questions").innerHTML = "";
         console.log("quiz completed");
+        clearInterval(timerInterval);
         
         saveScore.textContent = "Would you like to save your score?"
         body.appendChild(saveScore);
