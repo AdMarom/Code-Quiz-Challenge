@@ -19,7 +19,7 @@ function startButtonFunction() {
         document.querySelector(".quiz-questions").innerHTML = ""
         // Declare time and points element
         var timeElement = document.querySelector(".time");
-        var secondsLeft = 5;
+        var secondsLeft = 50;
         var pointsElement = document.querySelector(".points");
         var currentPoints = 0;
 
