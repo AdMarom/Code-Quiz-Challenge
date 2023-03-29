@@ -13,3 +13,14 @@ div {
     display: grid;
     place-items: center;
 }
+
+.high-scores {
+    display: flex;
+    float: right;
+}
+
+.list-scores {
+    display: flex;
+    float: right;
+    color: purple;
+}

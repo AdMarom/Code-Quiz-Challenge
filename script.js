@@ -3,8 +3,10 @@ function startButtonFunction() {
         // Declare document body variables
         var body = document.body;
         var questionsDiv = document.querySelector(".quiz-questions");
-        var revealAnswerDiv = document.querySelector(".answer")
-        var saveScore = document.querySelector(".save-score")
+        var revealAnswerDiv = document.querySelector(".answer");
+        var newSaveScore = document.querySelector(".new-score");
+        var nameInput = document.querySelector(".input-name")
+        var namePlayer = document.querySelector(".player-name")
 
         // Create start button element & append
         var startButton = document.createElement("button");
@@ -17,7 +19,7 @@ function startButtonFunction() {
         document.querySelector(".quiz-questions").innerHTML = ""
         // Declare time and points element
         var timeElement = document.querySelector(".time");
-        var secondsLeft = 50;
+        var secondsLeft = 5;
         var pointsElement = document.querySelector(".points");
         var currentPoints = 0;
 
@@ -284,11 +286,25 @@ function startButtonFunction() {
         console.log("quiz completed");
         clearInterval(timerInterval);
         
-        saveScore.textContent = "Would you like to save your score?"
-        body.appendChild(saveScore);
+        //save score variables
+        var saveNewScore = document.createElement("button");
+        saveNewScore.textContent = "Save Score";
+        newSaveScore.appendChild(saveNewScore);
+        var inputName = document.createElement("input");
+        var playerName = document.createElement("h4")
+        playerName.textContent = "Your Name: "
+        namePlayer.appendChild(playerName)
+        nameInput.appendChild(inputName);
         //Display Final Score
-        questionsDiv.textContent = "Final Score: " + currentPoints;
+        questionsDiv.textContent = "Final Score: " + currentPoints + "/50";
         body.appendChild(questionsDiv);
+
+        //save to local storage
+        saveNewScore.addEventListener("click", function() {
+            var playersName = inputName.value
+            localStorage.setItem("Name", playersName);
+            localStorage.setItem("Score", currentPoints);
+        })
 
     }
 
@@ -299,8 +315,20 @@ function startButtonFunction() {
     
 
 
-
-
-
 };
+
 startButtonFunction()
+
+// Event Listener to view high scores
+
+var viewScores = document.querySelector(".high-scores");
+viewScores.addEventListener("click", function(){
+    var firstName = localStorage.getItem("Name");
+    var scoreListed = localStorage.getItem("Score");
+    console.log(firstName, scoreListed);
+    var listScores = document.querySelector(".list-scores")
+    var firstNameHighScore = document.createElement("h4");
+    firstNameHighScore.textContent = " Name: " + firstName + ", " + " Score: " + scoreListed + " ";
+    listScores.appendChild(firstNameHighScore);
+
+})
