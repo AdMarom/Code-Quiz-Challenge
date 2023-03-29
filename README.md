@@ -8,6 +8,8 @@ A short Javascript quiz where the user has to answer questions in alotted time. 
 
  [Installation](#Installation)
 
+ [Examples] (#Examples)
+
     
  [Use](#Use)
 
@@ -27,7 +29,7 @@ A short Javascript quiz where the user has to answer questions in alotted time. 
 ## Installation
 Go to the deployed link and press start quiz button
 
-## Screen Shots
+## Examples
 
 ![](./images/question2.png)
 ![](./images/question4.png)
